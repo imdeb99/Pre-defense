@@ -13,12 +13,7 @@ if (isset($_POST['login'])) {
 
     include 'config.php';
 
-    // Check if the email and password match the admin credentials
-    // if ($l_email === 'admin@gmail.com' && $l_pass === '@Admin1234.') {
-    //     $_SESSION['email'] = $l_email; // Create a session variable for the logged-in user
-    //     header('Location: home.php'); // Redirect to the admin page
-    //     exit();
-    // }
+
 
     // Check if the email and password match a regular user in the database (case-insensitive)
     $result = mysqli_query($conn, "SELECT * FROM register WHERE LOWER(db_email) = '$l_email' AND db_password = '$l_pass'");
