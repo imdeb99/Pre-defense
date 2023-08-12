@@ -20,30 +20,13 @@
 
 
     <ul class="navbar">
-      <li><a href="<?php echo SITEURL; ?>index.php">Home</a></li>
-      <li><a href="<?php echo SITEURL; ?>categories.php">Categories</a></li>
-      <div class="dropdown">
-        <a class="dropdown-toggle" href="#">Resturant</a>
-        <div class="dropdown-content">
-          <a href="#">Panshi</a>
-          <a href="#">Pachvai </a>
-
-        </div>
-      </div>
-      </li>
-      <div class="dropdown">
-        <a class="dropdown-toggle" href="#">Food</a>
-        <div class="dropdown-content">
-          <a href="#">Panshi food</a>
-          <a href="#">Pachvai food</a>
-
-        </div>
-      </div>
-
-      <li><a href="<?php echo SITEURL; ?>login.php">Logout</a></li>
-      <!-- <li><a href="#" class="cart"><i class='bx bxs-cart-download'></i></a></li> -->
-    </ul>
-
+  <li><a href="<?php echo SITEURL; ?>index.php">Home</a></li>
+  <li><a href="<?php echo SITEURL; ?>categories.php">Categories</a></li>
+  <li><a href="#">Resturant</a></li>
+  <li><a href="foods.php">Food</a></li>
+  <li><a href="<?php echo SITEURL; ?>login.php">Logout</a></li>
+  <!-- <li><a href="#" class="cart"><i class='bx bxs-cart-download'></i></a></li> -->
+</ul>
 
   </header>
 </body>

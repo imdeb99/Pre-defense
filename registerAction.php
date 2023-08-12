@@ -115,8 +115,7 @@ if (isset($_POST['register'])) {
 
     $v_code = bin2hex(random_bytes(16));
 
-    // $insertQuery = "INSERT INTO `register`(`db_username`, `db_email`, `db_mobile`, `db_password`,`token`, `status`) VALUES ('$_r_username','$_r_email','$_r_mobile','$_r_pass','$token','inactive')";
-
+   
     $insertQuery = "INSERT INTO `register`(`db_username`, `db_email`, `db_mobile`, `db_password`, `verification_code`, `is_verified`) VALUES ('$_r_username','$_r_email','$_r_mobile','$_r_pass','$v_code','0')";
 
 
