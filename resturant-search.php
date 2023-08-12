@@ -1,13 +1,17 @@
+
 <?php include('partials-front/menu.php'); ?>
 
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
+        <?php 
+
+            $search = mysqli_real_escape_string($conn, $_POST['search']);
         
-        <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
-            <input type="search" name="search" placeholder="Search for Food.." required>
-            <input type="submit" name="submit" value="Search" class="btn btn-primary">
-        </form>
+        ?>
+
+
+        <h2>Foods on Your Search <a href="#" class="text-black">"<?php echo $search; ?>"</a></h2>
 
     </div>
 </section>
@@ -18,28 +22,28 @@
 <!-- fOOD MEnu Section Starts Here -->
 <section class="food-menu">
     <div class="container">
-        <h2 class="text-center">All Resturants</h2>
+        <h2 class="text-center">Resturant</h2>
 
         <?php 
-            $sql = "SELECT * FROM table_resturant1 WHERE active='Yes'";
 
-            //Execute the Query
-            $res=mysqli_query($conn, $sql);
+            $sql = "SELECT * FROM table_resturant1 WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
-            //Count Rows
+            $res = mysqli_query($conn, $sql);
+
             $count = mysqli_num_rows($res);
 
             if($count>0)
             {
+                //Food Available
                 while($row=mysqli_fetch_assoc($res))
                 {
-                    //Get the Values
+                    //Get the details
                     $id = $row['id'];
                     $title = $row['title'];
                     $description = $row['description'];
                     $image_name = $row['image_name'];
                     ?>
-                    
+
                     <div class="food-menu-box">
                         <div class="food-menu-img">
                             <?php 
@@ -50,8 +54,9 @@
                                 else
                                 {
                                     ?>
-                                    <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-                                    <?php
+                                    <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Resturants" class="img-responsive img-curve">
+                                    <?php 
+
                                 }
                             ?>
                             
@@ -59,13 +64,12 @@
 
                         <div class="food-menu-desc">
                             <h4><?php echo $title; ?></h4>
-                           
                             <p class="food-detail">
                                 <?php echo $description; ?>
                             </p>
                             <br>
 
-                            <a href="<?php echo SITEURL; ?>foods.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Explore</a>
+                            <a href="#" class="btn btn-primary">See all</a>
                         </div>
                     </div>
 
@@ -74,11 +78,11 @@
             }
             else
             {
-                echo "<div class='error'>Food not found.</div>";
+                //Food Not Available
+                echo "<div class='error'>Resturant not found.</div>";
             }
-        ?>
-
         
+        ?>
 
         
 

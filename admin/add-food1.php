@@ -2,7 +2,7 @@
 <div class="container">
     <div class="main-content">
         <div class="wrapper">
-            <h1>Add Resturant</h1>
+            <h1>Add Food 1</h1>
 
             <br><br>
 
@@ -20,14 +20,21 @@
                     <tr>
                         <td>Title: </td>
                         <td>
-                            <input type="text" name="title" placeholder="Title of the Resturant">
+                            <input type="text" name="title" placeholder="Title of the Food">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Description: </td>
                         <td>
-                            <textarea name="description" cols="30" rows="5" placeholder="Description of the Resturant."></textarea>
+                            <textarea name="description" cols="30" rows="5" placeholder="Description of the Food."></textarea>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Price: </td>
+                        <td>
+                            <input type="number" name="price">
                         </td>
                     </tr>
 
@@ -96,7 +103,7 @@
 
                     <tr>
                         <td colspan="2">
-                            <input type="submit" name="submit" value="Add Resturant" class="btn-secondary">
+                            <input type="submit" name="submit" value="Add Food" class="btn-secondary">
                         </td>
                     </tr>
 
@@ -133,7 +140,7 @@
                         $ext = @end(explode('.', $image_name));
 
                         // Create New Name for Image
-                        $image_name = "Resturant-Name-" . rand(0000, 9999) . "." . $ext;
+                        $image_name = "Food-Name-" . rand(0000, 9999) . "." . $ext;
 
                         $src = $_FILES['image']['tmp_name'];
 
@@ -143,7 +150,7 @@
 
                         if ($upload == false) {
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
-                            header('location:' . SITEURL . 'admin/add-resturant.php');
+                            header('location:' . SITEURL . 'admin/add-food1.php');
                             //STop the process
                             die();
                         }
@@ -153,21 +160,19 @@
                 }
 
 
-                // $sql2 = "INSERT INTO `table_food`(`title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES ('$title','$description','$price','$image_name','$category','$featured','$active')";
-
-                $sql2 = "INSERT INTO `table_resturant`(`title`, `description`, `image_name`, `category_id`, `featured`, `active`) VALUES ('$title','$description','$image_name','$category','$featured','$active')";
+                $sql2 = "INSERT INTO `table_food1`(`title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES ('$title','$description','$price','$image_name','$category','$featured','$active')";
 
                 $res2 = mysqli_query($conn, $sql2);
 
 
                 if ($res2 == true) {
-                    $_SESSION['add'] = "<div class='success'>Resturant Added Successfully.</div>";
-                    echo "<script> window.location.href = 'manage-resturant.php'; </script>";
+                    $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
+                    echo "<script> window.location.href = 'manage-food1.php'; </script>";
 
                     ini_set('display_errors', 0);
                 } else {
-                    $_SESSION['add'] = "<div class='error'>Failed to add Resturant.</div>";
-                    header('location:' . SITEURL . 'admin/manage-resturant.php');
+                    $_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
+                    header('location:' . SITEURL . 'admin/manage-food1.php');
                 }
             }
 

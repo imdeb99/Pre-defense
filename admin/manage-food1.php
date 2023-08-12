@@ -3,12 +3,12 @@
 <div class="container">
     <div class="main-content">
         <div class="wrapper">
-            <h1>Manage Resturant </h1>
+            <h1>Manage Food 1</h1>
 
             <br /><br />
 
             <!-- Button to Add Admin -->
-            <a href="add-resturant.php" class="btn btn-primary btn-sm">Add Resturant </a>
+            <a href="add-food1.php" class="btn btn-primary btn-sm">Add Food 1</a>
 
             <br /><br /><br />
 
@@ -44,6 +44,7 @@
                 <tr>
                     <th scope="col">S.N.</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Price</th>
                     <th scope="col">Image</th>
                     <th scope="col">Featured</th>
                     <th scope="col">Active</th>
@@ -52,7 +53,7 @@
                 </tr>
 
                 <?php
-                $sql = "SELECT * FROM table_resturant";
+                $sql = "SELECT * FROM table_food1";
 
                 $res = mysqli_query($conn, $sql);
 
@@ -65,6 +66,7 @@
                         //get the values from individual columns
                         $id = $row['id'];
                         $title = $row['title'];
+                        $price = $row['price'];
                         $image_name = $row['image_name'];
                         $featured = $row['featured'];
                         $active = $row['active'];
@@ -73,6 +75,7 @@
                         <tr>
                             <td><?php echo $sn++; ?>. </td>
                             <td><?php echo $title; ?></td>
+                            <td>$<?php echo $price; ?></td>
                             <td>
                                 <?php
                                 if ($image_name == "") {
@@ -87,8 +90,8 @@
                             <td><?php echo $featured; ?></td>
                             <td><?php echo $active; ?></td>
                             <td>
-                                <a href="<?php echo SITEURL; ?>admin/update-resturant.php?id=<?php echo $id; ?>" class="btn-secondary">Update Resturant</a>
-                                <a href="<?php echo SITEURL; ?>admin/delete-resturant.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Resturant</a>
+                                <a href="<?php echo SITEURL; ?>admin/update-food1.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
+                                <a href="<?php echo SITEURL; ?>admin/delete-food1.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
                             </td>
                         </tr>
 
@@ -96,7 +99,7 @@
                     }
                 } else {
                     //Food not Added in Database
-                    echo "<tr> <td colspan='7' class='error'> Resturant not Added Yet. </td> </tr>";
+                    echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
                 }
 
                 ?>

@@ -4,27 +4,28 @@
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql2 = "SELECT * FROM table_resturant WHERE id=$id";
+    $sql2 = "SELECT * FROM table_food1 WHERE id=$id";
     $res2 = mysqli_query($conn, $sql2);
 
     $row2 = mysqli_fetch_assoc($res2);
 
     $title = $row2['title'];
     $description = $row2['description'];
+    $price = $row2['price'];
     $current_image = $row2['image_name'];
     $current_category = $row2['category_id'];
     $featured = $row2['featured'];
     $active = $row2['active'];
 } else {
-    //Redirect to Manage Resturant
-    header('location:' . SITEURL . 'admin/manage-resturant.php');
+    //Redirect to Manage Food
+    header('location:' . SITEURL . 'admin/manage-food1.php');
 }
 ?>
 
 
 <div class="main-content">
     <div class="wrapper">
-        <h1>Update Resturant </h1>
+        <h1>Update Food</h1>
         <br><br>
 
         <form action="" method="POST" enctype="multipart/form-data">
@@ -42,6 +43,13 @@ if (isset($_GET['id'])) {
                     <td>Description: </td>
                     <td>
                         <textarea name="description" cols="30" rows="5"><?php echo $description; ?></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Price: </td>
+                    <td>
+                        <input type="number" name="price" value="<?php echo $price; ?>">
                     </td>
                 </tr>
 
@@ -128,7 +136,7 @@ if (isset($_GET['id'])) {
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
 
-                        <input type="submit" name="submit" value="Update Resturant" class="btn-secondary">
+                        <input type="submit" name="submit" value="Update Food" class="btn-secondary">
                     </td>
                 </tr>
 
@@ -145,6 +153,7 @@ if (isset($_GET['id'])) {
             $id = $_POST['id'];
             $title = $_POST['title'];
             $description = $_POST['description'];
+            $price = $_POST['price'];
             $current_image = $_POST['current_image'];
             $category = $_POST['category'];
 
@@ -180,7 +189,7 @@ if (isset($_GET['id'])) {
                         //FAiled to Upload
                         $_SESSION['upload'] = "<div class='error'>Failed to Upload new Image.</div>";
                         //REdirect to Manage Food 
-                        header('location:' . SITEURL . 'admin/manage-resturant.php');
+                        header('location:' . SITEURL . 'admin/manage-food1.php');
                         //Stop the Process
                         die();
                     }
@@ -198,7 +207,7 @@ if (isset($_GET['id'])) {
                             //failed to remove current image
                             $_SESSION['remove-failed'] = "<div class='error'>Faile to remove current image.</div>";
                             //redirect to manage food
-                            header('location:' . SITEURL . 'admin/manage-resturant.php');
+                            header('location:' . SITEURL . 'admin/manage-food1.php');
                             //stop the process
                             die();
                         }
@@ -213,14 +222,15 @@ if (isset($_GET['id'])) {
 
 
             //4. Update the Food in Database
-            $sql3 = "UPDATE table_resturant SET 
+            $sql3 = "UPDATE table_food1 SET 
                     title = '$title',
                     description = '$description',
+                    price = $price,
                     image_name = '$image_name',
                     category_id = '$category',
                     featured = '$featured',
                     active = '$active'
-                    WHERE id='$id'
+                    WHERE id=$id
                 ";
 
             //Execute the SQL Query
@@ -229,12 +239,12 @@ if (isset($_GET['id'])) {
             //CHeck whether the query is executed or not 
             if ($res3 == true) {
                 //Query Exectued and Food Updated
-                $_SESSION['update'] = "<div class='success'>Resturant Updated Successfully.</div>";
-                echo "<script> window.location.href = 'manage-resturant.php'; </script>";
+                $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
+                echo "<script> window.location.href = 'manage-food1.php'; </script>";
             } else {
                 //Failed to Update Food
-                $_SESSION['update'] = "<div class='error'>Failed to Update Resturant.</div>";
-                header('location:' . SITEURL . 'admin/manage-resturant.php');
+                $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
+                header('location:' . SITEURL . 'admin/manage-food1.php');
             }
         }
 

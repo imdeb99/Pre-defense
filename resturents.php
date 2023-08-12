@@ -38,14 +38,14 @@
 <section class="food-search text-center">
     <div class="container">
         
-        <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
-            <input type="search" name="search" placeholder="Search for Food.." required>
+        <form action="<?php echo SITEURL; ?>resturant-search.php" method="POST">
+            <input type="search" name="search" placeholder="Search Resturant." required>
             <input type="submit" name="submit" value="Search" class="btn btn-primary">
         </form>
 
     </div>
 </section>
-<!-- fOOD sEARCH Section Ends Here -->
+<!-- Resturant sEARCH Section Ends Here -->
 
 
 
@@ -100,6 +100,7 @@
                             <br>
 
                             <a href="<?php echo SITEURL; ?>foods.php?food_id=<?php echo $id; ?>" class="btn btn-primary">See All food</a>
+                            
                         </div>
                     </div>
 

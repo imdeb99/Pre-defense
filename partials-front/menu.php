@@ -20,13 +20,13 @@
 
 
     <ul class="navbar">
-  <li><a href="<?php echo SITEURL; ?>index.php">Home</a></li>
-  <li><a href="<?php echo SITEURL; ?>categories.php">Categories</a></li>
-  <li><a href="#">Resturant</a></li>
-  <li><a href="foods.php">Food</a></li>
-  <li><a href="<?php echo SITEURL; ?>login.php">Logout</a></li>
-  <!-- <li><a href="#" class="cart"><i class='bx bxs-cart-download'></i></a></li> -->
-</ul>
+      <li><a href="<?php echo SITEURL; ?>index.php">Home</a></li>
+      <li><a href="<?php echo SITEURL; ?>categories.php">Categories</a></li>
+      <li><a href="resturents.php">Resturant</a></li>
+      <li><a href="foods.php">Food</a></li>
+      <li><a href="<?php echo SITEURL; ?>login.php">Logout</a></li>
+
+    </ul>
 
   </header>
 </body>

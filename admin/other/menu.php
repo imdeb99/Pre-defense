@@ -43,7 +43,13 @@ include('login_action.php');
             <a class="nav-link" href="manage-food.php">Food</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="manageResturant1.php">Restuent</a>
+            <a class="nav-link" href="manage-food1.php">Food 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="manage-resturant.php">Resturant</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="manageResturant1.php">Resturant 1 </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="manage-order.php">Order</a>

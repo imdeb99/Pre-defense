@@ -105,6 +105,7 @@
             <br>
 
             <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+            <a href="<?php echo SITEURL; ?>cart.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a>
           </div>
         </div>
 

@@ -56,7 +56,7 @@
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
-            <h2 class="text-center">Explore Foods</h2>
+            <h2 class="text-center">Explore Resturant</h2>
 
             <?php
 
@@ -74,7 +74,7 @@
                     $image_name = $row['image_name'];
             ?>
 
-                    <a href="<?php echo SITEURL; ?>all-resturent.php?category_id=<?php echo $id; ?>">
+                    <a href="<?php echo SITEURL; ?>admin/manage-resturant.php?category_id=<?php echo $id; ?>">
                         <div class="box-3 float-container">
                             <?php
                             if ($image_name == "") {
