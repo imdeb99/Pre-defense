@@ -25,17 +25,13 @@
       <div class="dropdown">
         <a class="dropdown-toggle" href="#">Resturant</a>
         <div class="dropdown-content">
-          <a href="#">Panshi</a>
-          <a href="#">Pachvai </a>
-
+          
         </div>
       </div>
       </li>
       <div class="dropdown">
         <a class="dropdown-toggle" href="#">Food</a>
-        <div class="dropdown-content">
-          <a href="#">Panshi food</a>
-          <a href="#">Pachvai food</a>
+       
 
         </div>
       </div>
